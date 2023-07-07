@@ -29,6 +29,7 @@ class TrainingConfig:
     eval_interval = 500     # After how many intervals should we see the validation loss?
     ckpt_interval = 500     # After how many intervals should we save the model?
     learning_rate = 3e-4    # learning rate.
+    eval_iters = 200
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 training_config = TrainingConfig()
