@@ -10,7 +10,7 @@ I read somewhere that self-attention can be seen as a Graph Neural Network, wher
 
 I started thinking of tokens as signals, and self-attention as a measure of correlation between those signals, and from there it was deliberate testing of methods I needed to mimic attention - using signal correlations. From the definition, we have : 
 
-``` Cross correlation is a measure of two series as a function of the displacement of one relative to the other. It is similar to convolution of two functions, and can be used to measure the degree between data. ```
+> Cross correlation is a measure of two series as a function of the displacement of one relative to the other. It is similar to convolution of two functions, and can be used to measure the degree between data.
 
 Convolutions have not been used in Transformer type architectures, despite the fact that they capture positional information is because Transformers provide flexibility. We can obtain learnable embeddings in Transformers, but not from CNNs - as the kernel become static once learned(also, computationally expensive). 
 
