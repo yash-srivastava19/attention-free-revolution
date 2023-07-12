@@ -14,6 +14,8 @@ model = model.to(training_config.device)
 
 print(sum(p.numel() for p in model.parameters())/1e6, 'M parameters')
 
+wandb.watch(model, log_freq = training_config.eval_interval)
+
 optimizer = torch.optim.AdamW(model.parameters(), lr=training_config.learning_rate)
 
 for iter in range(training_config.max_iters):
@@ -21,6 +23,9 @@ for iter in range(training_config.max_iters):
     if iter % training_config.eval_interval == 0 or iter == training_config.max_iters - 1:
         losses = estimate_loss()
         print(f"step {iter}: train loss {losses['train']:.4f}, val loss {losses['val']:.4f}")
+        
+        wandb.log({'step': iter, 'train_loss': losses['train'], 'val_loss': losses['val']})
+        
         torch.save({
             'epoch': iter,
             'model_state_dict': model.state_dict(),
@@ -28,6 +33,12 @@ for iter in range(training_config.max_iters):
             'loss': losses,
             }, f'model_{iter}_{losses["train"]:.4f}')
 
+        # Add code to upload the model to huggingface.
+        api.upload_file(
+            path_or_fileobj = f'/path/to/this/model_{i}_{losses["train"]:.4f}',    # TODO: Fix this path accordingly.
+            path_in_repo = f'model_{i}_{losses["train"]:.4f}',
+            repo_id = "yash-srivastava19/Leviathan",
+        )
     # sample a batch of data
     xb, yb = get_batch('train')
 
