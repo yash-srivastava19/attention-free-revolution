@@ -20,7 +20,7 @@ class LeviathanModelConfig(BaseLeviathanConfig):
     num_blocks = 2
     embed_dim = 4
 
-leviathan_model_config = LeviathanModelConfig()
+leviathan_model_config = LeviathanModelConfig(vocab_size, max_len)     ## Todo: Change these or something like that.
 
 class TrainingConfig:
     batch_size = 64         # how many independent sequences will we process in parallel?
