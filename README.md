@@ -1,4 +1,7 @@
 # Attention Free Revolution
+
+**NOTE** : Needed help in pre-training of the models. Anything from tips to do this on Kaggle(or similar platform) to actual computational resources would be highly appreciated.
+
 Maybe Attention isn't what all we need? This was something that I thought to myself when I learnt in detail about Attention Mechanism and Transformers in general. I know that Attention is the backbone of most problems we solve now in NLP, but what if it was not there? Can we actually replace attention ? Or is it that too much of our SOTA results are due to Attention mechanism, or Transformer.
 
 I love Transformers, but, like my mother says, we really understand someone's importance in our life when they are not there. So, being a lover for such questions, and with a inquisitive mind, started my journey to replace Attention with a different algorithm, and to make an architecture similar to Transformers - which I call Leviathan. 
