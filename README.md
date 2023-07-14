@@ -6,15 +6,14 @@ Maybe Attention isn't what all we need? This was something that I thought to mys
 
 I love Transformers, but, like my mother says, we really understand someone's importance in our life when they are not there. So, being a lover for such questions, and with a inquisitive mind, started my journey to replace Attention with a different algorithm, and to make an architecture similar to Transformers - which I call Leviathan. 
 
-![maybe_attention](https://github.com/yash-srivastava19/attention-free-revolution/assets/85068689/f2b8cae0-0c0c-48c9-8c3d-f3f7b2135b40)
-
+![maybe_attention](https://github.com/yash-srivastava19/attention-free-revolution/assets/85068689/0fc9a326-814a-4aa0-a02b-5d4b9850ad5f)
 
 ## What replaces Attention? 
 There is not any particular reason why Attention should be not used? Those peeps definitely researched a lot on this, and decided to move forward with the Attention we use today, but I thought of this in a different way which I would like to explain now. 
 
 I read somewhere that self-attention can be seen as a Graph Neural Network, where each token in the input sequence is a node, and edges denote the relationship between each tokens, and that attention layers is a directed graph - which makes sense as different context give different meaning to how different tokens are connected. I remebered that in dot-product attention, we multiplied the **Q** with **K** using dot product - which effectively tells the scores of similarity between **Q** and **K** . Just for remider : 
 
-<img width="700" alt="4mhWz" src="https://github.com/yash-srivastava19/attention-free-revolution/assets/85068689/7095f539-f5ec-4fd4-b070-05a2bda31c6a">
+<img width="706" alt="4mhWz" src="https://github.com/yash-srivastava19/attention-free-revolution/assets/85068689/a3256712-a923-4534-a013-7f59817894e2">
 
 For starters, I started thinking of tokens as signals, and self-attention as a measure of correlation between those signals. Attention can be used to capture both long range dependencies, and delay, whereas correlation is great when there is delay in signals. Cross-correlation is a more general way to find similarity between signals(tokens) effectively, dot product is just cross-correlation with zero lag. Introduction of lags explicitly allows for greater in-context relationships(hypothesis). With this in mind, I started testing of methods I needed to mimic attention - using signal correlations. 
 
