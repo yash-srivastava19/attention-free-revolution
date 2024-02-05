@@ -30,13 +30,15 @@ Involution is between those two. It is more effective and efficient than CNNs, a
 I have the plan to introduce some kind of involution score as an alternative to attention, but that is a different topic, and I need to discuss a lot with other. I tested a lot with these. Even with the smallest of things.
 
 ## What replaces Transformers?
-Leviathan is my replacement of Transformers. I was reading about different architectures of models such as BERT, BART, GPT-1, GPT-2, GPT-3, GPT-4... Wait a second. We dont' know much about GPT-4, but from comments by Geofry Holtz, and others, it's a combination of several models. Now I know a thing or two about model-ensembling and joint training, so with the power God and PyTorch on my side, I came up with a family of architectures, or as I like to call them - Flavours of Leviathan, each of which contain a bunch of model that are jointly trained with an cross-correlation interaction.
+Leviathan is my replacement of Transformers. I was reading about different architectures of models such as BERT, BART, GPT-1, GPT-2, GPT-3, GPT-4... Wait a second. We dont' know much about GPT-4/GPT-5, but from comments by Geofry Holtz, and others, it's a combination of several models. Now I know a thing or two about model-ensembling and joint training, so with the power God and PyTorch on my side, I came up with a family of architectures, or as I like to call them - **Flavours of Leviathan** , each of which contain a bunch of model that are jointly trained with an cross-correlation interaction.
 
 Although not tested due to computational power limitations, I propose a LeviathanModelEnsemble(Giant Leviathan) which consists of 8 model in ensemble, which are divided in 4 modules of 2 models each. Where, I suppose we can have every module(2 models) can be trained on a different data(or different type of data), and then we can combine the results of all the modules using only the relevant part(from MultiHeadedCorrelation). 
 
-Although the exact details are different types of models are yet to be finalised, I will have different flavours of Leviathan, all of which build upon the `LeviathanComponentBase`, and I recommend this as a great exercise to other people also, who want to make their own models. It's a great learning exercise as well. PRs with an architeure build using these components will make it to the official repository.      
+Although the exact details are different types of models are yet to be finalised, I will have different flavours of Leviathan, all of which build upon the `LeviathanComponentBase`, and I recommend this as a great exercise to other people also, who want to make their own models. It's a great learning exercise as well. PRs with an architeure build using these components will make it to the official repository.
 
-## Experimentation Details
+Update : The kind of model ensembling that I was thinking about scales up pretty exponentially. So, with the recent popularity in Mixture of Experts(MoE) architecture, I want to propose a Sparse Gated MoE model which kind of encompasses everything I wanted from this project. Although I'm pretty sure that I don't have the computation resouces to fully pre-train it from scratch, I will still try to do some baseline tests(maybe using MLFlow, Weights & Biases or something similar).
+
+### Experimentation Details(Outdated. Skip this  part)
 Model experimentation will be done once we have idea of how to train these huge models(and collection of models). The baseline `LeviathanComponent` is a 20 headed, 20 blocks, 800 embedding dimension model(around 77M Parameter)
 
 ## Can you actually replace Attention?
